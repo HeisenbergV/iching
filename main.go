@@ -11,7 +11,10 @@ import (
 var gua8 = []byte{0b111, 0b110, 0b101, 0b100, 0b011, 0b010, 0b001, 0b000}
 
 func Iching(num1, num2, num3 int) (gua64 byte, yao int) {
-	yao = num3 % 6
+	yao = num3%6 - 1
+	if yao < 0 {
+		yao = 0
+	}
 
 	num1 = num1 % 8
 	if num1 == 0 {
